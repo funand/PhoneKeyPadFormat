@@ -6,7 +6,7 @@ public class PhoneKeypadFormat {
         System.out.println(getFormattedString("7.777.444.66.222.33"));    // PRINCE
     }
 
-    static String getFormattedString(String input) {
+    private static String getFormattedString(String input) {
         HashMap<Integer, String> map = new HashMap<>();
         map.put(1, "");
         map.put(2, "ABC");
@@ -19,12 +19,12 @@ public class PhoneKeypadFormat {
         map.put(9, "WXYZ");
         map.put(0, " ");
 
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
 
         for (int i = 0; i < input.length(); i++) {
             char current = input.charAt(i);
             if (current == ' ') {
-                ans += " ";
+                ans.append(" ");
                 continue;
             }
             int j = i;
@@ -32,11 +32,11 @@ public class PhoneKeypadFormat {
                 j++;
             }
             if (map.get(Character.getNumericValue(input.charAt(i))) != null) {
-                ans += map.get(Character.getNumericValue(input.charAt(i))).charAt(j - i - 1);
+                ans.append(map.get(Character.getNumericValue(input.charAt(i))).charAt(j - i - 1));
                 i = j;
             }
         }
-        return ans;
+        return ans.toString();
     }
 }
 
