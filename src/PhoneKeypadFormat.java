@@ -23,10 +23,6 @@ public class PhoneKeypadFormat {
 
         for (int i = 0; i < input.length(); i++) {
             char current = input.charAt(i);
-            if (current == ' ') {
-                ans.append(" ");
-                continue;
-            }
             int j = i;
             while (j < input.length() && input.charAt(j) == current) {
                 j++;

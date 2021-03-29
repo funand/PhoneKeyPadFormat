@@ -21,10 +21,6 @@ private fun getFormattedString(inputString: String): String {
     var index = 0
     while (index < inputString.length) {
         val element = inputString[index]
-        if (element == ' ') {
-            answer.append(" ")
-            continue
-        }
         var j = index
         while (j < inputString.length && inputString[j] == element) {
             // while within the regular limit continue processing until the characterElement changes
